@@ -14,7 +14,7 @@ export default function Index() {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      alert("Quiz Finished!");
+      setCurrentQuestion(0);
     }
   };
 
@@ -22,7 +22,7 @@ export default function Index() {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
     } else {
-      alert("This is the first question.");
+      setCurrentQuestion(questions.length - 1);
     }
   };
 
@@ -30,10 +30,10 @@ export default function Index() {
     if (answer === questions[currentQuestion].answer) {
       setScore(score + 1);
       alert("Correct!");
+      nextQuestion();
     } else {
       alert("Wrong!");
     }
-    nextQuestion();
   };
 
   return (
