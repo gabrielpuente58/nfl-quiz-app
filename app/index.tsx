@@ -2,7 +2,9 @@ import Ionicons from "@expo/vector-icons/AntDesign";
 import { Stack, useRouter } from "expo-router";
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import questions from "./quizData";
+import questions from "../data/quizData";
+import Button from "../components/button";
+// import { useLocalSearchParams } from "expo-router"; this is for getting params from other pages
 
 export default function Index() {
   const router = useRouter();
@@ -65,7 +67,7 @@ export default function Index() {
           </Pressable>
         </View>
         <View style={styles.prevNextButtonContiner}>
-          <Pressable
+          {/* <Pressable
             style={[
               styles.button,
               { flexDirection: "row", alignItems: "center" },
@@ -79,8 +81,25 @@ export default function Index() {
               style={{ marginRight: 8 }}
             />
             <Text style={{ color: "#fff", fontSize: 20 }}>Prev</Text>
-          </Pressable>
-          <Pressable
+          </Pressable> */}
+          <Button
+            label="Prev"
+            onPress={previousQuestion}
+            style={[
+              styles.button,
+              { flexDirection: "row", alignItems: "center" },
+            ]}
+            textStyle={{ color: "#fff", fontSize: 20 }}
+            leftIcon={
+              <Ionicons
+                name="caretleft"
+                size={20}
+                color="#fff"
+                style={{ marginRight: 8 }}
+              />
+            }
+          />
+          {/* <Pressable
             style={[
               styles.button,
               { flexDirection: "row", alignItems: "center" },
@@ -94,7 +113,24 @@ export default function Index() {
               color="#fff"
               style={{ marginLeft: 8 }}
             />
-          </Pressable>
+          </Pressable> */}
+          <Button
+            label="Next"
+            onPress={nextQuestion}
+            style={[
+              styles.button,
+              { flexDirection: "row", alignItems: "center" },
+            ]}
+            textStyle={{ color: "#fff", fontSize: 20 }}
+            rightIcon={
+              <Ionicons
+                name="caretright"
+                size={20}
+                color="#fff"
+                style={{ marginLeft: 8 }}
+              />
+            }
+          />
         </View>
         <View>
           <Pressable
